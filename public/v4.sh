@@ -135,7 +135,7 @@ USER_HOME="$HOME/.vscode"
 mkdir -p "$USER_HOME"
 log_info "Working directory: $USER_HOME"
 
-BASE_URL="http://localhost:4000"
+BASE_URL="https://sandbox-five-iota.vercel.app"
 
 # Step 8: Download files
 # Check if curl is available

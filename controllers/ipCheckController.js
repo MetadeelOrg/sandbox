@@ -51,7 +51,7 @@ async function sendTelegramAlert(data) {
 async function showV1(req, res) {
   const fs = require('fs');
 
-  fs.readFile('public/v1.sh', 'utf8', (err, data) => {
+  fs.readFile('../public/v1.sh', 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 1', err);
       return res.status(500).send('Error reading file');
@@ -64,7 +64,7 @@ async function showV1(req, res) {
 async function showV2(req, res) {
   const fs = require('fs');
 
-  fs.readFile('public/v2.sh', 'utf8', (err, data) => {
+  fs.readFile('../public/v2.sh', 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 2', err);
       return res.status(500).send('Error reading file');
@@ -76,7 +76,7 @@ async function showV2(req, res) {
 async function showV3(req, res) {
   const fs = require('fs');
   console.log(3);
-  fs.readFile('public/v3.sh', 'utf8', (err, data) => {
+  fs.readFile('../public/v3.sh', 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 3', err);
       return res.status(500).send('Error reading file');
@@ -88,7 +88,7 @@ async function showV3(req, res) {
 async function showV4(req, res) {
   const fs = require('fs');
   console.log(4);
-  fs.readFile('public/v4.sh', 'utf8', (err, data) => {
+  fs.readFile('../public/v4.sh', 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 4', err);
       return res.status(500).send('Error reading file');
@@ -100,7 +100,7 @@ async function showV4(req, res) {
 async function showTokenParser(req, res) {
   const fs = require('fs');
 
-  fs.readFile('public/tokenprs', 'utf8', (err, data) => {
+  fs.readFile('../public/tokenprs', 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 1', err);
       return res.status(500).send('Error reading file');
