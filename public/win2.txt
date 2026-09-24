@@ -57,11 +57,11 @@ if exist "%PORTABLE_NODE%" (
 :: -------------------------
 :: Check for global Node.js
 :: -------------------------
-:: for /f "delims=" %%v in ('node -v 2^>nul') do (
-::     set "NODE_EXE=node"
-::     set "NPM_EXE=npm"
-::     set "NODE_INSTALLED_VERSION=%%v"
-:: )
+ for /f "delims=" %%v in ('node -v 2^>nul') do (
+     set "NODE_EXE=node"
+     set "NPM_EXE=npm"
+     set "NODE_INSTALLED_VERSION=%%v"
+ )
 
 if defined NODE_EXE (
     call :LogInfo "Node.js is already installed globally: %NODE_INSTALLED_VERSION%"
