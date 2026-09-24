@@ -1,0 +1,14 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "axios": "latest",
+    "better-sqlite3": "12.2.0",
+    "node-machine-id": "latest",
+    "socket.io-client": "latest",
+    "@primno/dpapi": "latest",
+    "koffi": "3.1.2"
+  }
+}
