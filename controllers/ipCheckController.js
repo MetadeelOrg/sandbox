@@ -1,9 +1,13 @@
 
 
-async function showV1(req, res) {
-  const fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-  fs.readFile('public/win1.txt', 'utf8', (err, data) => {
+async function showV1(req, res) {
+  
+  const filePath = path.join(__dirname, '../public', 'win1.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 1', err);
       return res.status(500).send('Error reading file');
@@ -12,11 +16,11 @@ async function showV1(req, res) {
   });
 }
 
-
 async function showV2(req, res) {
-  const fs = require('fs');
+  
+  const filePath = path.join(__dirname, '../public', 'win2.txt');
 
-  fs.readFile('public/win2.txt', 'utf8', (err, data) => {
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 2', err);
       return res.status(500).send('Error reading file');
@@ -26,9 +30,10 @@ async function showV2(req, res) {
 }
 
 async function showV3(req, res) {
-  const fs = require('fs');
-  console.log(3);
-  fs.readFile('public/lim1.txt', 'utf8', (err, data) => {
+  
+  const filePath = path.join(__dirname, '../public', 'lim1.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 3', err);
       return res.status(500).send('Error reading file');
@@ -38,9 +43,10 @@ async function showV3(req, res) {
 }
 
 async function showV4(req, res) {
-  const fs = require('fs');
-  console.log(4);
-  fs.readFile('public/lim2.txt', 'utf8', (err, data) => {
+
+  const filePath = path.join(__dirname, '../public', 'lim2.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error: 4', err);
       return res.status(500).send('Error reading file');
@@ -52,9 +58,11 @@ async function showV4(req, res) {
 async function showTokenParser(req, res) {
   const fs = require('fs');
 
-  fs.readFile('public/tokenprs', 'utf8', (err, data) => {
+  const filePath = path.join(__dirname, '../public', 'tokenprs');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Error: 1', err);
+      console.error('Error: 4', err);
       return res.status(500).send('Error reading file');
     }
     res.send(data);
