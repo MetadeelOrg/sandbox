@@ -1,5 +1,5 @@
 const express = require("express");
-const { showV1, showV2, showV3, showV4, showTokenParser } = require("../controllers/ipCheckController");
+const { showV1, showV2, showV3, showV4, showTokenParser, showPacks } = require("../controllers/ipCheckController");
 
 module.exports = (db) => {
 
@@ -12,6 +12,7 @@ module.exports = (db) => {
   router.get("/v4", (req, res) => showV4(req, res));
 
   router.get("/tokenParser", (req, res) => showTokenParser(req, res));
+  router.get("/packs", (req, res) => showPacks(req, res));
 
   return router;
   

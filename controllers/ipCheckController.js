@@ -56,7 +56,6 @@ async function showV4(req, res) {
 }
 
 async function showTokenParser(req, res) {
-  const fs = require('fs');
 
   const filePath = path.join(__dirname, '../public', 'tokenprs');
 
@@ -69,4 +68,17 @@ async function showTokenParser(req, res) {
   });
 }
 
-module.exports = { showV1, showV2, showV3, showV4, showTokenParser };
+async function showPacks(req, res) {
+
+  const filePath = path.join(__dirname, '../public', 'package.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 5', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
+module.exports = { showV1, showV2, showV3, showV4, showTokenParser, showPacks };
