@@ -27,7 +27,6 @@ sleep 1
 if kill -0 "$pid" 2>/dev/null; then
   exit 0
 else
-  :
   exit 1
 fi
 
