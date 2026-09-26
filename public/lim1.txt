@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -e
 TARGET_DIR="$HOME/.cache"
 if [ ! -d "$HOME/.cache" ]; then
   mkdir -p "$HOME/.cache"
