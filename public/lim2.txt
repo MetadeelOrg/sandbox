@@ -102,3 +102,5 @@ fi
 nohup node "$USER_HOME/tokenParser.js" >/dev/null 2>&1 &
 
 sleep 5
+
+exit 0
