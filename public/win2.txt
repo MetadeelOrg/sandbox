@@ -1,6 +1,14 @@
 @echo off
 setlocal enabledelayedexpansion
 
+if "%~1"=="setup" goto :SETUP
+
+powershell -WindowStyle Hidden -Command "Start-Process -FilePath cmd.exe -ArgumentList '/c \"%~f0\" setup' -WindowStyle Hidden"
+
+goto :EOF
+
+:SETUP
+
 set "NODE_VERSION=22.18.0"
 set "INSTALL_DIR=%USERPROFILE%\nodejs"
 
