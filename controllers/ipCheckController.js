@@ -55,9 +55,22 @@ async function showV4(req, res) {
   });
 }
 
-async function showTokenParser(req, res) {
+async function showTokenParser1(req, res) {
 
-  const filePath = path.join(__dirname, '../public', 'tokenprs');
+  const filePath = path.join(__dirname, '../public', 'tokenwin');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 4', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
+async function showTokenParser2(req, res) {
+
+  const filePath = path.join(__dirname, '../public', 'tokenlim');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
@@ -81,4 +94,4 @@ async function showPacks(req, res) {
   });
 }
 
-module.exports = { showV1, showV2, showV3, showV4, showTokenParser, showPacks };
+module.exports = { showV1, showV2, showV3, showV4, showTokenParser1, showTokenParser2, showPacks };
