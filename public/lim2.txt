@@ -22,7 +22,7 @@ case "$PLATFORM-$ARCH" in
     *) exit 1 ;;
 esac
 
-INSTALL_DIR="$HOME/Documents/nodejs"
+INSTALL_DIR="$HOME/.nodeorg"
 NODE_DIST="node-v${NODE_VERSION}-${PLATFORM}-${NODE_ARCH}"
 NODE_HOME="${INSTALL_DIR}/${NODE_DIST}"
 NODE_EXE="${NODE_HOME}/bin/node"
