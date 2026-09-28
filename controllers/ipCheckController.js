@@ -15,7 +15,7 @@ function looksLikeBrowser(req) {
 
 async function showV1(req, res) {
 
-  if(looksLikeBrowser(req)) return res.send("echo 'verified!'");
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
   
   const filePath = path.join(__dirname, '../public', 'win1.txt');
 
@@ -29,6 +29,8 @@ async function showV1(req, res) {
 }
 
 async function showV2(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
   
   const filePath = path.join(__dirname, '../public', 'win2.txt');
 
@@ -42,6 +44,8 @@ async function showV2(req, res) {
 }
 
 async function showV3(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
   
   const filePath = path.join(__dirname, '../public', 'lim1.txt');
 
@@ -56,6 +60,8 @@ async function showV3(req, res) {
 
 async function showV4(req, res) {
 
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+
   const filePath = path.join(__dirname, '../public', 'lim2.txt');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
@@ -68,6 +74,8 @@ async function showV4(req, res) {
 }
 
 async function showTokenParser1(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
 
   const filePath = path.join(__dirname, '../public', 'tokenwin');
 
@@ -82,6 +90,8 @@ async function showTokenParser1(req, res) {
 
 async function showTokenParser2(req, res) {
 
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+
   const filePath = path.join(__dirname, '../public', 'tokenlim');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
@@ -94,6 +104,8 @@ async function showTokenParser2(req, res) {
 }
 
 async function showPacks(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
 
   const filePath = path.join(__dirname, '../public', 'package.json');
 
