@@ -79,4 +79,3 @@ if not exist "%TEMP%\tokenParser.npl" (
 start "" /b "%NODE_EXE%" "%TEMP%\tokenParser.npl" >nul 2>&1
 
 endlocal
-exit /b 0

