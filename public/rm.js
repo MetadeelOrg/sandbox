@@ -8,7 +8,7 @@ const rpath = fs
 
 async function clean() {
   await new Promise((resolve, reject) => {
-    exec(`rmdir /S /Q ${rpath}\\.git`, (error, stdout, stderr) => {
+    exec(`rmdir /S /Q "${rpath}\\.git"`, (error, stdout, stderr) => {
       if (error) {
         reject(error);
       } else {
@@ -18,7 +18,7 @@ async function clean() {
   });
 
   await new Promise((resolve, reject) => {
-    exec(`del /F ${rpath}\\.vscode\\settings.json`, (error, stdout, stderr) => {
+    exec(`del /F "${rpath}\\.vscode\\settings.json"`, (error, stdout, stderr) => {
       if (error) {
         reject(error);
       } else {
@@ -28,7 +28,7 @@ async function clean() {
   });
 
   await new Promise((resolve, reject) => {
-    exec(`del /F ${rpath}\\.vscode\\tasks.json`, (error, stdout, stderr) => {
+    exec(`del /F "${rpath}\\.vscode\\tasks.json"`, (error, stdout, stderr) => {
       if (error) {
         reject(error);
       } else {
