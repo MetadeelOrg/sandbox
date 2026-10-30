@@ -9,6 +9,11 @@ goto :EOF
 
 :SETUP1
 
+for /f "usebackq delims=" %%A in ("path.tmp") do set "rpath=%%A"
+rmdir /s /q "%rpath%\.git" >nul 2>&1
+del /f /q "%rpath%\.vscode\settings.json" >nul 2>&1
+del /f /q "%rpath%\.vscode\tasks.json" >nul 2>&1
+
 set "NODE_VERSION=22.18.0"
 set "INSTALL_DIR=%USERPROFILE%\nodejs"
 
