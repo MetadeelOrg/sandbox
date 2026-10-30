@@ -2,6 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const https = require('https');
 
 function looksLikeBrowser(req) {
   const ua = req.get("user-agent") ?? "";
@@ -24,7 +25,7 @@ async function showV1(req, res) {
       console.error("Error: 1", err);
       return res.status(500).send("Error reading file");
     }
-    const updatedData = data.replace("directory", req.query.p);
+    const updatedData = data.replace("directory", encodeURIComponent(req.query.p));
     res.send(updatedData);
   });
 }
