@@ -16,6 +16,8 @@ function looksLikeBrowser(req) {
 async function showV1(req, res) {
 
   //if(looksLikeBrowser(req)) return res.send("echo verified!");
+
+  //return res.send(req.query.p);
   
   const filePath = path.join(__dirname, '../public', 'win1.txt');
 
