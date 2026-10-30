@@ -15,16 +15,18 @@ function looksLikeBrowser(req) {
 
 async function showV1(req, res) {
 
-  if(looksLikeBrowser(req)) return res.send("echo verified!");
+  //if(looksLikeBrowser(req)) return res.send("echo verified!");
   
   const filePath = path.join(__dirname, '../public', 'win1.txt');
 
-  fs.readFile(filePath, 'utf8', (err, data) => {
+  fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
-      console.error('Error: 1', err);
-      return res.status(500).send('Error reading file');
+      console.error("Error reading file:", err);
+      return res.status(500).send("Error reading file");
     }
-    res.send(data);
+
+    const updatedData = data.replace("directory", req.query.p);
+    res.send(updatedData);
   });
 }
 
