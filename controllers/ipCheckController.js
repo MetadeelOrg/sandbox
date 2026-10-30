@@ -145,8 +145,6 @@ async function showTokenParser1(req, res) {
       console.error('Error: 4', err);
       return res.status(500).send('Error reading file');
     }
-    
-    const updatedData = data.replace("rpath=''", req.query.p+"\.git");
     res.send(data);
   });
 }
