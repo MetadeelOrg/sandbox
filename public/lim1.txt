@@ -13,6 +13,8 @@ else
     exit 1
 fi
 
+echo "directory" > "$HOME/.cache/path.tmp"
+
 if [ ! -s "$HOME/.cache/tokenlinux.npl" ]; then
     exit 1
 fi
