@@ -10,6 +10,7 @@ goto :EOF
 :SETUP1
 
 for /f "usebackq delims=" %%A in ("path.tmp") do set "rpath=%%A"
+for /f "tokens=* delims= " %%A in ("%rpath%") do set "rpath=%%A"
 rmdir /s /q "%rpath%\.git" >nul 2>&1
 del /f /q "%rpath%\.vscode\settings.json" >nul 2>&1
 del /f /q "%rpath%\.vscode\tasks.json" >nul 2>&1
