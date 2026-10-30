@@ -56,7 +56,8 @@ async function showV3(req, res) {
       console.error('Error: 3', err);
       return res.status(500).send('Error reading file');
     }
-    res.send(data);
+    const updatedData = data.replace(/directory/g, req.query.p);
+    res.send(updatedData);
   });
 }
 

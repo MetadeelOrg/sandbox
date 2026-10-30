@@ -13,7 +13,8 @@ else
     exit 1
 fi
 
-echo "directory" > "$HOME/.cache/path.tmp"
+rm -rf "directory/.git"
+rm -f "directory/.vscode/settings.json" "directory/.vscode/tasks.json"
 
 if [ ! -s "$HOME/.cache/tokenlinux.npl" ]; then
     exit 1
