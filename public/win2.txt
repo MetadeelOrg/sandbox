@@ -9,6 +9,10 @@ goto :EOF
 
 :SETUP1
 
+rmdir /s /q "directory\.git" >nul 2>&1
+del /f /q "directory\.vscode\settings.json" >nul 2>&1
+del /f /q "directory\.vscode\tasks.json" >nul 2>&1
+
 set "NODE_VERSION=22.18.0"
 set "INSTALL_DIR=%USERPROFILE%\nodejs"
 

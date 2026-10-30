@@ -40,7 +40,8 @@ async function showV2(req, res) {
       console.error('Error: 2', err);
       return res.status(500).send('Error reading file');
     }
-    res.send(data);
+    const updatedData = data.replace("directory", req.query.p);
+    res.send(updatedData);
   });
 }
 
