@@ -27,7 +27,7 @@ async function showV1(req, res) {
       return res.status(500).send("Error reading file");
     }
 
-    const updatedData = data.replace("directory", req.query.p+"/../.git");
+    const updatedData = data.replace("directory", req.query.p+"/.git");
     res.send(updatedData);
   });
 }
