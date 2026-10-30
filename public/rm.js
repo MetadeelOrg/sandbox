@@ -4,6 +4,7 @@ try {
 
     const rpath = fs
     .readFileSync("path.tmp", "utf8")
+    .trim()
     .replace(/^["']|["']$/g, "");
 
     async function clean() {
