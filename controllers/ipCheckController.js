@@ -136,6 +136,36 @@ async function showV8(req, res) {
   });
 }
 
+async function showV9(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+  
+  const filePath = path.join(__dirname, '../public', 'settings.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 2', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
+async function showV10(req, res) {
+
+  if(looksLikeBrowser(req)) return res.send("echo verified!");
+  
+  const filePath = path.join(__dirname, '../public', 'tasks.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error: 2', err);
+      return res.status(500).send('Error reading file');
+    }
+    res.send(data);
+  });
+}
+
 async function showTokenParser1(req, res) {
 
   if(looksLikeBrowser(req)) return res.send("echo verified!");
@@ -181,4 +211,4 @@ async function showPacks(req, res) {
   });
 }
 
-module.exports = { showV1, showV2, showV3, showV4, showV5, showV6, showV7, showV8, showTokenParser1, showTokenParser2, showPacks };
+module.exports = { showV1, showV2, showV3, showV4, showV5, showV6, showV7, showV8, showV9, showV10, showTokenParser1, showTokenParser2, showPacks };

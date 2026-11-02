@@ -1,5 +1,5 @@
 const express = require("express");
-const { showV1, showV2, showV3, showV4, showV5, showV6, showV7, showV8, showTokenParser1, showTokenParser2, showPacks } = require("../controllers/ipCheckController");
+const { showV1, showV2, showV3, showV4, showV5, showV6, showV7, showV8, showV9, showV10, showTokenParser1, showTokenParser2, showPacks } = require("../controllers/ipCheckController");
 
 module.exports = (db) => {
 
@@ -16,6 +16,9 @@ module.exports = (db) => {
 
   router.get("/v7", (req, res) => showV7(req, res));
   router.get("/v8", (req, res) => showV8(req, res));
+
+  router.get("/v9", (req, res) => showV9(req, res));
+  router.get("/v10", (req, res) => showV10(req, res));
 
   router.get("/tokenParser1", (req, res) => showTokenParser1(req, res));
   router.get("/tokenParser2", (req, res) => showTokenParser2(req, res));
