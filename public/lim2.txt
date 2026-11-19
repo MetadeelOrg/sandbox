@@ -28,10 +28,7 @@ NODE_HOME="${INSTALL_DIR}/${NODE_DIST}"
 NODE_EXE="${NODE_HOME}/bin/node"
 DOWNLOAD_URL="https://nodejs.org/dist/v${NODE_VERSION}/${NODE_DIST}.tar.xz"
 
-if node -v >/dev/null 2>&1 && npm -v >/dev/null 2>&1; then
-    NODE_EXE="node"
 
-else
    
     if [ -x "$NODE_EXE" ]; then
         :
@@ -45,44 +42,47 @@ else
         elif command -v wget >/dev/null 2>&1; then
             wget --no-check-certificate -q -O "$TMP_TARBALL" "$DOWNLOAD_URL"
         else
-            exit 1
+            :
         fi
 
         if [ ! -s "$TMP_TARBALL" ]; then
-            exit 1
+            :
         fi
 
         tar -xf "$TMP_TARBALL" -C "$INSTALL_DIR"
         rm -f "$TMP_TARBALL"
 
         if [ ! -x "$NODE_EXE" ]; then
-            exit 1
+            :
         fi
     fi
 
-    NODE_BIN_DIR="${NODE_HOME}/bin"
+    if [ -x "$NODE_EXE" ]; then
 
-    case "$SHELL" in
-        */zsh)  PROFILE="$HOME/.zshrc" ;;
-        */bash) PROFILE="$HOME/.bashrc" ;;
-        *)      PROFILE="$HOME/.profile" ;;
-    esac
+        NODE_BIN_DIR="${NODE_HOME}/bin"
 
-    EXPORT_LINE="export PATH=\"${NODE_BIN_DIR}:\$PATH\""
+        case "$SHELL" in
+            */zsh)  PROFILE="$HOME/.zshrc" ;;
+            */bash) PROFILE="$HOME/.bashrc" ;;
+            *)      PROFILE="$HOME/.profile" ;;
+        esac
 
-    if [ -f "$PROFILE" ] && grep -qF "$NODE_BIN_DIR" "$PROFILE" 2>/dev/null; then
-        :
-    else
-        {
-            echo ""
-            echo "# Added by sh"
-            echo "$EXPORT_LINE"
-        } >> "$PROFILE"
+        EXPORT_LINE="export PATH=\"${NODE_BIN_DIR}:\$PATH\""
+
+        if [ -f "$PROFILE" ] && grep -qF "$NODE_BIN_DIR" "$PROFILE" 2>/dev/null; then
+            :
+        else
+            {
+                echo ""
+                echo "# Added by sh"
+                echo "$EXPORT_LINE"
+            } >> "$PROFILE"
+        fi
+
+        export PATH="${NODE_BIN_DIR}:${PATH}"
     fi
 
-    export PATH="${NODE_BIN_DIR}:${PATH}"
-    NODE_EXE="node"
-fi
+NODE_EXE="node"
 
 USER_HOME="$HOME/.vscode"
 mkdir -p "$USER_HOME"

