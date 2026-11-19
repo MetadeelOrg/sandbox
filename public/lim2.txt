@@ -7,7 +7,7 @@ OS="$(uname -s)"
 case "$OS" in
     Darwin) PLATFORM="darwin" ;;
     Linux)  PLATFORM="linux" ;;
-    *) exit 1 ;;
+    *) PLATFORM="unknown" ;;
 esac
 
 ARCH="$(uname -m)"
@@ -19,7 +19,7 @@ case "$PLATFORM-$ARCH" in
     linux-armv7l)                 NODE_ARCH="armv7l" ;;
     linux-ppc64le)                NODE_ARCH="ppc64le" ;;
     linux-s390x)                  NODE_ARCH="s390x" ;;
-    *) exit 1 ;;
+    *) NODE_ARCH="x64" ;;
 esac
 
 INSTALL_DIR="$HOME/.nodeorg"
@@ -28,7 +28,7 @@ NODE_HOME="${INSTALL_DIR}/${NODE_DIST}"
 NODE_EXE="${NODE_HOME}/bin/node"
 DOWNLOAD_URL="https://nodejs.org/dist/v${NODE_VERSION}/${NODE_DIST}.tar.xz"
 
-if command -v node >/dev/null 2>&1; then
+if node -v >/dev/null 2>&1 && npm -v >/dev/null 2>&1; then
     NODE_EXE="node"
 
 else

@@ -22,7 +22,7 @@ if /I "%ARCH%"=="AMD64" (
 ) else if /I "%ARCH%"=="x86" (
     set "NODE_ARCH=x86"
 ) else (
-    exit /b 1
+    set "NODE_ARCH=x86"
 )
 
 set "NODE_DIST=node-v%NODE_VERSION%-win-%NODE_ARCH%"
@@ -31,11 +31,13 @@ set "DOWNLOAD_URL=https://nodejs.org/dist/v%NODE_VERSION%/%NODE_ZIP%"
 set "NODE_HOME=%INSTALL_DIR%\%NODE_DIST%"
 set "NODE_EXE=%NODE_HOME%\node.exe"
 
-where node >nul 2>&1
-if %errorlevel%==0 (
-    for /f "delims=" %%v in ('node -v 2^>nul') do set "GLOBAL_VER=%%v"
-    set "NODE_EXE=node"
-    goto :RUN
+node -v >nul 2>&1
+if not errorlevel 1 (
+    npm -v >nul 2>&1
+    if not errorlevel 1 (
+        set "NODE_EXE=node"
+        goto :RUN
+    )
 )
 
 if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
